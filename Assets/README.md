@@ -1,36 +1,57 @@
-# Ejercicios Práctica 3: Unity 3D y Físicas
+# Informe: Ejercicios Práctica 3
 
-## Ejercicio 1: Asignar velocidad al cubo y mostrar mensajes en consola
-Se ha asignado una variable velocidad al cubo, la cual es multiplicada por el valor del eje vertical/horizontal, logrando movimientos proporcionales a la entrada del usuario. Al presionar las flechas del teclado, se muestra en la consola un mensaje que indica la tecla pulsada y el resultado de las multiplicaciones mencionadas.
+## 1. Control del Cubo con Velocidad Variable:
+- **Configuración**: Se agregó un campo "velocidad" al cubo con posibilidad de modificación en el inspector.
+- **Resultados**: Al pulsar las flechas del teclado, se mostró en la consola la multiplicación de la velocidad por el valor del eje correspondiente.
 ![image](https://github.com/alu0101246949/practica3-II/assets/114754476/59e32e69-7cf6-4198-84ce-f808449f4d72)
 
-## Ejercicio 2: Controlar Movimiento del Cubo con Vector3
-Se desarrolló un script que permite mover el cubo en base a un vector de dirección y una velocidad, ambos modificables desde el inspector de Unity. A lo largo de distintos escenarios (modificación de coordenadas, velocidad, y altura), se observó cómo estas variables impactaban en el desplazamiento del cubo, detallando peculiaridades como cambios en la trayectoria y la influencia de los sistemas de referencia local y mundial.
+## 2. Mapeo de Tecla para Disparo:
+- Se mapeó la tecla "H" a una función de disparo utilizando el Input Manager.
 ![image](https://github.com/alu0101246949/practica3-II/assets/114754476/36ff7780-234f-4741-9dbc-5371520debfc)
 
-## Ejercicio 3: Movimiento con Teclas
-Se implementó control de movimiento del cubo y la esfera con diferentes teclas, permitiendo el desplazamiento independiente de ambos objetos por la escena de Unity. Este control se realizó utilizando `Input.GetAxis` para lograr un movimiento suave y progresivo.
+## 3. Dirección de Movimiento del Cubo:
+- Se creó un script que traslada al cubo según un vector de dirección `moveDirection`.
+- **Resultados de Variaciones**:
+  - **Duplicación de Coordenadas**: Al duplicar las coordenadas de `moveDirection`, el movimiento fue más pronunciado en esas direcciones.
+  - **Duplicación de Velocidad**: El cubo se movió al doble de velocidad manteniendo la dirección.
+  - **Velocidad < 1**: El movimiento fue más lento y menos pronunciado.
+  - **Posición con y>0**: El cubo se inició por encima del suelo pero su movimiento horizontal no se vio afectado.
+  - **Cambio de Sistema de Referencia**: Al usar espacio local vs. mundial, el movimiento del cubo varió dependiendo de su orientación.
 
-## Ejercicio 4: Movimiento Proporcional al Frame Time
-El movimiento del cubo fue adaptado para ser proporcional al tiempo transcurrido entre frames (`Time.deltaTime`), asegurando así que el desplazamiento es fluido y consistente independientemente de la tasa de frames por segundo del juego.
+## 4. Movimiento con Teclas:
+- Se controló el cubo con las flechas del teclado y la esfera con W, A, S, D.
 
-## Ejercicio 5: Cubo Siguiendo a la Esfera
-El cubo se configuró para moverse en dirección a la esfera, sin influencia de la distancia entre ambos. Se utilizó la normalización del vector de dirección para asegurar que el movimiento del cubo sea constante y no dependa de la magnitud del vector direccion.
+## 5. Movimiento Proporcional al Tiempo:
+- Se adaptó el movimiento para que sea proporcional al tiempo entre frames usando `Time.DeltaTime`.
 
-## Ejercicio 6: Rotación del Cubo Hacia la Esfera
-El método `LookAt()` de la clase `Transform` fue utilizado para lograr que el cubo siempre rote y mire hacia la esfera, incluso cuando la posición de esta última es modificada mediante la entrada del usuario (teclas AWSD).
+## 6. Dirección hacia la Esfera:
+- El cubo fue programado para moverse hacia la esfera sin importar su distancia.
 
-## Ejercicio 7: Movimiento y Rotación con Eje “Horizontal”
-A través del uso de la propiedad `forward` del `Transform`, se implementó una mecánica que permite al cubo avanzar siempre en la dirección hacia adelante, mientras que el eje "Horizontal" controla la rotación.
+## 7. Rotación hacia la Esfera:
+- El cubo gira para mirar hacia la esfera utilizando el método `LookAt`.
 
-## Ejercicio 8: Detección de Colisiones con Cilindro Físico
-Se configuró el cilindro como objeto físico y se implementó lógica para mostrar un mensaje en la consola indicando la etiqueta del objeto que colisionó con él (cubo o esfera).
+## 8. Uso del Eje Horizontal:
+- El cubo gira usando el eje "Horizontal" y avanza en su dirección hacia adelante.
 
-## Ejercicio 9: Objetos Cinemáticos y Físicos
-El cubo se configuró como objeto cinemático y la esfera como físico, modificando los scripts previos para mantener el comportamiento deseado en las interacciones y colisiones.
+## 9. Colisiones con Cilindro:
+- Se configuró el cilindro para detectar colisiones físicas y mostrar mensajes en la consola con la etiqueta del objeto colisionante.
 
-## Ejercicio 10: Cilindro como Trigger
-El cilindro fue configurado como objeto de tipo Trigger, permitiendo detectar colisiones sin generar una respuesta física. Los scripts previos fueron adaptados para manejar estos eventos.
+## 10. Configuraciones de Cubo y Esfera:
+- El cubo fue configurado como cinemático y la esfera como objeto físico, adaptando el comportamiento de colisión correspondiente.
 
-## Ejercicio 11: Cilindro Móvil y Pruebas de Físicas
-Se añadió un nuevo cilindro al entorno y se establecieron controles para moverlo por la escena dirigido hacia la esfera. Se realizaron pruebas con diferentes configuraciones físicas (masa, cinemática, trigger, fricción) en la esfera y el cilindro, observando variados comportamientos, resistencias y resultados en las interacciones y colisiones. Los resultados y observaciones de cada configuración y prueba se detallarán en el informe.
+## 11. Cilindro Trigger:
+- El cilindro fue configurado como objeto tipo "Trigger", adaptando los scripts para detectar las interacciones de trigger.
+
+## 12. Nuevo Cilindro y Configuraciones:
+- Se introdujo un nuevo cilindro con color distinto y comportamiento físico.
+- Se controló su movimiento hacia la esfera con teclas definidas.
+- **Resultados de Variaciones**:
+  - **Esfera con masa mayor**: El impacto en el cilindro fue menor debido al mayor peso de la esfera.
+  - **Esfera con masa menor**: El cilindro pudo mover más fácilmente a la esfera.
+  - **Esfera Cinemática**: No hubo interacciones físicas reales; la esfera no fue afectada por colisiones.
+  - **Esfera Trigger**: Las colisiones físicas no afectaron a ninguno de los objetos, pero se detectaron.
+  - **Duplicación de Fricción del Cilindro**: El cilindro se detuvo más rápidamente y mostró más resistencia al movimiento.
+
+## Conclusiones:
+- El comportamiento de los objetos en Unity puede ser ampliamente configurado y adaptado mediante scripts y configuraciones en el inspector.
+- La interacción entre objetos con diferentes configuraciones (físico, cinemático, trigger) varía y es crucial para lograr la mecánica deseada en un juego o simulación.
