@@ -3,20 +3,26 @@
 ## 1. Control del Cubo con Velocidad Variable:
 - **Configuración**: Se agregó un campo "velocidad" al cubo con posibilidad de modificación en el inspector.
 - **Resultados**: Al pulsar las flechas del teclado, se mostró en la consola la multiplicación de la velocidad por el valor del eje correspondiente.
+
 ![image](https://github.com/alu0101246949/practica3-II/assets/114754476/59e32e69-7cf6-4198-84ce-f808449f4d72)
 
 ## 2. Mapeo de Tecla para Disparo:
 - Se mapeó la tecla "H" a una función de disparo utilizando el Input Manager.
+
 ![image](https://github.com/alu0101246949/practica3-II/assets/114754476/36ff7780-234f-4741-9dbc-5371520debfc)
+![image](https://github.com/alu0101246949/practica3-II/assets/114754476/c89238aa-5c02-4f49-8019-9cbd5ce18664)
+
 
 ## 3. Dirección de Movimiento del Cubo:
 - Se creó un script que traslada al cubo según un vector de dirección `moveDirection`.
 - **Resultados de Variaciones**:
-  - **Duplicación de Coordenadas**: Al duplicar las coordenadas de `moveDirection`, el movimiento fue más pronunciado en esas direcciones.
-  - **Duplicación de Velocidad**: El cubo se movió al doble de velocidad manteniendo la dirección.
-  - **Velocidad < 1**: El movimiento fue más lento y menos pronunciado.
-  - **Posición con y>0**: El cubo se inició por encima del suelo pero su movimiento horizontal no se vio afectado.
-  - **Cambio de Sistema de Referencia**: Al usar espacio local vs. mundial, el movimiento del cubo varió dependiendo de su orientación.
+  - **Duplicación de Coordenadas**: No se observan cambios significativos en el movimiento. Esto se debe a que hemos normalizado el vector, por lo tanto, sólo se utiliza la    dirección y no la magnitud.
+  - **Duplicación de Velocidad**: Al duplicar la velocidad, el cubo se mueve con una rapidez notablemente mayor.
+  - **Velocidad < 1**: El cubo parece moverse en dirección opuesta, como si retrocediera.
+  - **Posición con y>0**: Al iniciar el cubo con una posición y mayor que cero, éste se desplaza hacia arriba.
+  - **Cambio de Sistema de Referencia**: Al aplicar `Space.World` en `Translate`, no se nota diferencia.
+
+
 
 ## 4. Movimiento con Teclas:
 - Se controló el cubo con las flechas del teclado y la esfera con W, A, S, D.
