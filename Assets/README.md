@@ -2,6 +2,8 @@
 
 ## Ejercicio 1: Asignar velocidad al cubo y mostrar mensajes en consola
 Se ha asignado una variable velocidad al cubo, la cual es multiplicada por el valor del eje vertical/horizontal, logrando movimientos proporcionales a la entrada del usuario. Al presionar las flechas del teclado, se muestra en la consola un mensaje que indica la tecla pulsada y el resultado de las multiplicaciones mencionadas.
+![image](https://github.com/alu0101246949/practica3-II/assets/114754476/59e32e69-7cf6-4198-84ce-f808449f4d72)
+
 
 ## Ejercicio 2: Controlar Movimiento del Cubo con Vector3
 Se desarrolló un script que permite mover el cubo en base a un vector de dirección y una velocidad, ambos modificables desde el inspector de Unity. A lo largo de distintos escenarios (modificación de coordenadas, velocidad, y altura), se observó cómo estas variables impactaban en el desplazamiento del cubo, detallando peculiaridades como cambios en la trayectoria y la influencia de los sistemas de referencia local y mundial.
